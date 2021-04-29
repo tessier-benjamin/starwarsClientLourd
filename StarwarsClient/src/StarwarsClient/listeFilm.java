@@ -1,29 +1,22 @@
 package StarwarsClient;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import javax.swing.JScrollPane;
-import javax.swing.JToolBar;
 import javax.swing.JButton;
-import java.awt.Color;
-import javax.swing.JTable;
-import javax.swing.JMenuBar;
-import java.awt.Button;
+import javax.swing.JFrame;
 import javax.swing.JList;
-import java.awt.List;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class listeFilm extends JFrame {
 
@@ -31,9 +24,40 @@ public class listeFilm extends JFrame {
 	 * Launch the application.
 	 */
 	
-	String label[] = { "Mars","Vénus","Mercure","Jupiter","Saturne","Uranus","Six",
-    "Neptune" };
-	JList list;
+
+    private String[] tableCoulmnsName = {"Nom", "Valeur", "Utiliser"};
+    private Object[][] tableDatas = {
+        {"pi", 3.14159, false},
+        {"phi", 1.68803, true},
+        {"e", 2.71828, false},
+        {"euro", 1.0, false},
+        {"franc", 6.59, true},
+        {"pi", 3.14159, false},
+        {"phi", 1.68803, true},
+        {"e", 2.71828, false},
+        {"euro", 1.0, false},
+        {"franc", 6.59, true},
+        {"pi", 3.14159, false},
+        {"phi", 1.68803, true},
+        {"e", 2.71828, false},
+        {"euro", 1.0, false},
+        {"franc", 6.59, true},
+        {"pi", 3.14159, false},
+        {"phi", 1.68803, true},
+        {"e", 2.71828, false},
+        {"euro", 1.0, false},
+        {"franc", 6.59, true},
+        {"pi", 3.14159, false},
+        {"phi", 1.68803, true},
+        {"e", 2.71828, false},
+        {"euro", 1.0, false},
+        {"franc", 6.59, true},
+        {"pi", 3.14159, false},
+        {"phi", 1.68803, true},
+        {"e", 2.71828, false},
+        {"euro", 1.0, false},
+        {"franc", 6.59, true}
+    };
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -65,14 +89,18 @@ public class listeFilm extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 820, 564);
 		getContentPane().setLayout(null);
+		this.setLocationRelativeTo(null);
 		
-		JList list = new JList();
-		list.setBounds(10, 11, 784, 377);
-		getContentPane().add(list);
+		JPanel contentPanel = (JPanel) this.getContentPane();
+		contentPanel.setLayout(new FlowLayout());
+
 		
-		JButton btnNewButton_2 = new JButton("SE CONNECTER");
-		btnNewButton_2.setBounds(586, 446, 132, 23);
-		getContentPane().add(btnNewButton_2);
+        JTable usersListTable = new JTable(this.tableDatas, this.tableCoulmnsName);
+        usersListTable.setPreferredScrollableViewportSize(new Dimension(300, 200));
+        usersListTable.setFillsViewportHeight(true);
+        
+        JScrollPane scrollPane = new JScrollPane(usersListTable);
+        contentPanel.add(scrollPane);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
