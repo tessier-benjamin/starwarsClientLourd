@@ -54,6 +54,7 @@ public class connexion extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
+		
 		JLabel lblNewLabel = new JLabel("IDENTIFIANT");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setBounds(89, 97, 81, 39);

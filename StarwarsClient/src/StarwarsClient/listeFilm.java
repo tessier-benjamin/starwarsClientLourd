@@ -10,6 +10,8 @@ import java.awt.event.ComponentEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.GridBagLayout;
@@ -28,11 +30,17 @@ public class listeFilm extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	String label[] = { "Mars","Vénus","Mercure","Jupiter","Saturne","Uranus","Six",
+    "Neptune" };
+	JList list;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					listeFilm frame = new listeFilm();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					frame.addComponentListener(new ComponentAdapter() {
 			            @Override
 			            public void componentResized(ComponentEvent e) {
@@ -40,6 +48,7 @@ public class listeFilm extends JFrame {
 			            }
 
 			        });
+
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,6 +64,15 @@ public class listeFilm extends JFrame {
 		super("STARWARS");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 820, 564);
+		getContentPane().setLayout(null);
+		
+		JList list = new JList();
+		list.setBounds(10, 11, 784, 377);
+		getContentPane().add(list);
+		
+		JButton btnNewButton_2 = new JButton("SE CONNECTER");
+		btnNewButton_2.setBounds(586, 446, 132, 23);
+		getContentPane().add(btnNewButton_2);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -70,7 +88,13 @@ public class listeFilm extends JFrame {
 		btnNewButton_1.setForeground(Color.BLACK);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		menuBar.add(btnNewButton_1);
+		
+		DefaultTableModel model = new DefaultTableModel();
+		
+		
 	}
+	
+	
 	
 	private static void titleAlign(JFrame frame) {
 
